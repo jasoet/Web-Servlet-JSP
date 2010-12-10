@@ -1,0 +1,39 @@
+<?xml version="1.0"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Kuliah" product="MySQL" version="5.1.49-1ubuntu8.1" jdbc-version="3.0" driver-version="mysql-connector-java-5.1.13 ( Revision: ${bzr.revision-id} )" uuid="bc9335ab-7167-4b68-958b-664e52d7c437">
+    <extra-name-characters>#@</extra-name-characters>
+    <identifier-quote-string>`</identifier-quote-string>
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://localhost:3306/kuliah</jdbc-url>
+    <user-name>root</user-name>
+    <user-password>dfc6dfc5dfc9dfcbdfc6dfc2dfc5dfd9dfde</user-password>
+    <default-dialect>MySQL</default-dialect>
+    <libraries>
+      <library>
+        <url>jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.13/mysql-connector-java-5.1.13.jar!/</url>
+      </library>
+    </libraries>
+    <table name="dosen" schema="" catalog="kuliah" type="TABLE">
+      <column name="dosen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="niy" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12" />
+      <column name="nama" sqlType="VARCHAR" length="55" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="dosen_id" />
+      <index name="niy" unique="true" columns="niy" />
+    </table>
+    <table name="mata_kuliah" schema="" catalog="kuliah" type="TABLE">
+      <column name="mata_kuliah_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="kode" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12" />
+      <column name="nama" sqlType="VARCHAR" length="55" precision="0" nullable="false" jdbcType="12" />
+      <column name="dosen_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <primary-key name="PRIMARY" columns="mata_kuliah_id" />
+      <foreign-key name="dosen_mata_kuliah_fk" columns="dosen_id" ref-table="dosen" ref-schema="" ref-catalog="kuliah" ref-columns="dosen_id" cascade-update="true" cascade-remove="true" />
+      <index name="kode" unique="true" columns="kode" />
+    </table>
+    <table name="ruang" schema="" catalog="kuliah" type="TABLE">
+      <column name="ruang_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="nama" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12" />
+      <column name="keterangan" sqlType="VARCHAR" length="155" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="ruang_id" />
+      <index name="nama" unique="true" columns="nama" />
+    </table>
+  </data-source>
+</component>
