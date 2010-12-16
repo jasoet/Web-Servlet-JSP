@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.jasoet.dao.DosenDAO;
 import org.jasoet.model.Dosen;
 
@@ -15,6 +16,27 @@ public class DosenDAOImpl implements DosenDAO {
 
     public DosenDAOImpl(Connection connection) {
         this.connection = connection;
+    }
+
+    @Override
+    public Dosen getByNiy(String niy) throws SQLException {
+        String sql = "SELECT d.dosen_id as id,d.niy,d.nama FROM dosen d WHERE d.niy=?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+
+        ps.setString(1, niy);
+        ResultSet rs = ps.executeQuery();
+
+        Dosen result = null;
+
+        if (rs.next()) {
+            result = new Dosen();
+            result.setId(rs.getInt("id"));
+            result.setNiy(rs.getString("niy"));
+            result.setNama(rs.getString("nama"));
+
+        }
+        return result;
+
     }
 
     public List<Dosen> getAll() throws SQLException {

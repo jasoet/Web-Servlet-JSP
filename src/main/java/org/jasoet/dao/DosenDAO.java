@@ -6,13 +6,15 @@ package org.jasoet.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+
 import org.jasoet.model.Dosen;
 
 /**
- *
  * @author jasoet
  */
 public interface DosenDAO {
+
+    public Dosen getByNiy(String niy) throws SQLException;
 
     public List<Dosen> getAll() throws SQLException;
 
