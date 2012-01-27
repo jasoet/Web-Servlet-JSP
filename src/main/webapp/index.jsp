@@ -1,8 +1,4 @@
-<%-- 
-    Document   : index
-    Created on : Dec 1, 2010, 8:39:50 PM
-    Author     : jasoet
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
